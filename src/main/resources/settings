@@ -1,0 +1,10 @@
+##### ChavaCommit Settings File #####
+
+# Port for ChavaCommit to listen for Github POSTs
+listen-port: 5555
+
+# Short URL Service Settings
+# options bit_ly or spout_in
+service: bit_ly
+user: ChavaBot
+api-key: some_awesome_api_key
