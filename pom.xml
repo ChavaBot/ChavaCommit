@@ -45,7 +45,7 @@
 				<directory>${basedir}/src/main/resources</directory>
 				<includes>
 					<include>settings</include>
-					<include>commits</include>
+					<include>commit</include>
 					<include>authors</include>
 				</includes>
 			</resource>
