@@ -20,7 +20,7 @@ public class ChavaCommit extends JavaPlugin {
 	
 	@Override
 	public void onDisable() {
-		server.interrupt();
+		if (server != null) server.interrupt();
 		server = null;
 		ChavaCommit.commits = null;
 		ChavaCommit.authors = null;
@@ -46,22 +46,22 @@ public class ChavaCommit extends JavaPlugin {
 			getPluginLoader().disablePlugin(this);
 			return;
 		}
-		if (settings.checkProperty("listen-port")) {
+		if (!settings.checkProperty("listen-port")) {
 			getLogger().log(Level.INFO, logPrefix + "Listen Port is not defined in the settings file, defaulting to 5555");
 		}
-		if (settings.checkProperty("service")) {
+		if (!settings.checkProperty("service")) {
 			getLogger().log(Level.SEVERE, logPrefix + "Service is not defined in the settings file!");
 			getLogger().log(Level.SEVERE, logPrefix + "Disabling");
 			getPluginLoader().disablePlugin(this);
 			return;
 		}
-		if (settings.checkProperty("user")) {
+		if (!settings.checkProperty("user")) {
 			getLogger().log(Level.INFO, logPrefix + "User is not defined in the settings file!");
 			getLogger().log(Level.SEVERE, logPrefix + "Disabling");
 			getPluginLoader().disablePlugin(this);
 			return;
 		}
-		if (settings.checkProperty("api-key")) {
+		if (!settings.checkProperty("api-key")) {
 			getLogger().log(Level.INFO, logPrefix + "API Key is not defined in the settings file!");
 			getLogger().log(Level.SEVERE, logPrefix + "Disabling");
 			getPluginLoader().disablePlugin(this);
