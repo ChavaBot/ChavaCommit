@@ -45,6 +45,7 @@ public class CommandParser {
 						}
 					} else if (cmd.equalsIgnoreCase("reload")) {
 						ChavaCommit.getCommitSettings().load();
+						ChavaCommit.getAuthors().load();
 					}
 				}
 			} else {
