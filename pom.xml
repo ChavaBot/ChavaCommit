@@ -40,11 +40,13 @@
 				</includes>
 			</resource>
 			<resource>
-				<targetPath>com/alta189/chavaadmin</targetPath>
+				<targetPath>com/alta189/chavacommit</targetPath>
 				<filtering>false</filtering>
 				<directory>${basedir}/src/main/resources</directory>
 				<includes>
 					<include>settings</include>
+					<include>commits</include>
+					<include>authors</include>
 				</includes>
 			</resource>
 		</resources>
