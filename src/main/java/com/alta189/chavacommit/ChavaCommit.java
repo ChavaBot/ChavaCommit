@@ -31,6 +31,7 @@ public class ChavaCommit extends JavaPlugin {
 
 	@Override
 	public void onEnable() {
+		getDataFolder().mkdir();
 		try {
 			ChavaCommit.commits = new SettingsHandler(ChavaCommit.class.getResource("commit").openStream(), new File(getDataFolder(), "commits.properties"));
 			settings = new SettingsHandler(ChavaCommit.class.getResource("settings").openStream(), new File(getDataFolder(), "settings.properties"));

@@ -12,7 +12,6 @@ public class CommandParser {
 			return;
 		StringTokenizer tokens = new StringTokenizer(message);
 		String parentCmd = tokens.nextToken().substring(1);
-		
 		if (!parentCmd.equalsIgnoreCase("commit") || !parentCmd.equalsIgnoreCase("c")) {
 			if (ChavaPerms.getPermsManager().hasPerms(sender, "commit")) {
 				String formattedChan = channel.replaceAll("#", "@");
