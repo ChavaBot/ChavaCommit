@@ -90,7 +90,7 @@ public class ChavaCommit extends JavaPlugin {
 		ShortUrlService.setApiKey(apiKey);
 		
 		server = new Server(settings.getPropertyInteger("listen-port", 5555));
-		server.run();
+		server.start();
 		
 		getLogger().log(Level.INFO, logPrefix + "Enabled!");
 		
