@@ -1,0 +1,7 @@
+name: ChavaCommit
+version: ${build.number}
+description: ChavaCommit 
+author: alta189
+
+main: com.alta189.chavacommit.ChavaCommit
+depends: [ChavaPerms]
