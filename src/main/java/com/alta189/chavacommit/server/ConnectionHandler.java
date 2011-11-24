@@ -6,7 +6,6 @@ import java.io.InputStreamReader;
 import java.net.Socket;
 import java.net.URLDecoder;
 
-import com.alta189.chavabot.Channel;
 import com.alta189.chavabot.ChavaManager;
 import com.alta189.chavacommit.ChavaCommit;
 import com.alta189.chavacommit.objects.Formatter;
@@ -61,10 +60,10 @@ public class ConnectionHandler extends Thread {
 
 			formatter.load(payload);
 			
-			for (Channel channel : ChavaManager.getInstance().getChavaBot().getChannels()) {
-				if (ChavaCommit.getCommitSettings().checkProperty(channel.toString().replaceAll("#", "@"))) {
-					for (String project : ChavaCommit.getCommitSettings().getPropertyString(channel.toString().replaceAll("#", "@"), "Bukkit").split(",")) {
-						if (project.equalsIgnoreCase(formatter.getRepo().getName())) formatter.send(channel.toString());
+			for (String channel : ChavaManager.getInstance().getChavaBot().getChannels()) {
+				if (ChavaCommit.getCommitSettings().checkProperty(channel.replaceAll("#", "@"))) {
+					for (String project : ChavaCommit.getCommitSettings().getPropertyString(channel.replaceAll("#", "@"), "Bukkit").split(",")) {
+						if (project.equalsIgnoreCase(formatter.getRepo().getName())) formatter.send(channel);
 					}
 				}
 			}
