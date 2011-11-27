@@ -61,7 +61,6 @@ public class ConnectionHandler extends Thread {
 			formatter.load(payload);
 			
 			for (String channel : ChavaManager.getInstance().getChavaBot().getChannels()) {
-				ChavaManager.getInstance().getChavaBot().sendMessage("#Spouty", "I am in:" + channel);
 				if (ChavaCommit.getCommitSettings().checkProperty(channel.replaceAll("#", "@"))) {
 					for (String project : ChavaCommit.getCommitSettings().getPropertyString(channel.replaceAll("#", "@"), "Bukkit").split(",")) {
 						if (project.equalsIgnoreCase(formatter.getRepo().getName())) formatter.send(channel);
