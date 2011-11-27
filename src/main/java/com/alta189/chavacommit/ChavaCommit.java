@@ -37,6 +37,7 @@ public class ChavaCommit extends JavaPlugin {
 			settings = new SettingsHandler(ChavaCommit.class.getResource("settings").openStream(), new File(getDataFolder(), "settings.properties"));
 			ChavaCommit.authors = new SettingsHandler(ChavaCommit.class.getResource("authors").openStream(), new File(getDataFolder(), "authors.properties"));
 			ChavaCommit.commits.setCached(true);
+			ChavaCommit.commits.setIgnoreCase(true);
 			ChavaCommit.commits.load();
 			ChavaCommit.authors.setCached(true);
 			ChavaCommit.authors.load();
