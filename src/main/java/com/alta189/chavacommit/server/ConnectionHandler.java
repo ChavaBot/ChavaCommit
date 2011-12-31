@@ -6,6 +6,8 @@ import java.io.InputStreamReader;
 import java.net.Socket;
 import java.net.URLDecoder;
 
+import org.pircbotx.Channel;
+
 import com.alta189.chavabot.ChavaManager;
 import com.alta189.chavacommit.ChavaCommit;
 import com.alta189.chavacommit.objects.Formatter;
@@ -60,9 +62,9 @@ public class ConnectionHandler extends Thread {
 
 			formatter.load(payload);
 			
-			for (String channel : ChavaManager.getInstance().getChavaBot().getChannels()) {
-				if (ChavaCommit.getCommitSettings().checkProperty(channel.replaceAll("#", "@"))) {
-					for (String project : ChavaCommit.getCommitSettings().getPropertyString(channel.replaceAll("#", "@"), "Bukkit").split(",")) {
+			for (Channel channel : ChavaManager.getInstance().getChavaBot().getChannels()) {
+				if (ChavaCommit.getCommitSettings().checkProperty(channel.getName().replaceAll("#", "@"))) {
+					for (String project : ChavaCommit.getCommitSettings().getPropertyString(channel.getName().replaceAll("#", "@"), "Bukkit").split(",")) {
 						if (project.equalsIgnoreCase(formatter.getRepo().getName())) formatter.send(channel);
 					}
 				}

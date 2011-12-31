@@ -4,14 +4,13 @@ import java.io.File;
 import java.io.IOException;
 import java.util.logging.Level;
 
-import com.alta189.chavabot.events.Order;
-import com.alta189.chavabot.events.channelevents.MessageEvent;
-import com.alta189.chavabot.plugins.java.JavaPlugin;
+import com.alta189.chavabot.ChavaManager;
+import com.alta189.chavabot.plugin.CommonPlugin;
 import com.alta189.chavabot.util.SettingsHandler;
 import com.alta189.chavacommit.ShortUrlService.Service;
 import com.alta189.chavacommit.server.Server;
 
-public class ChavaCommit extends JavaPlugin {
+public class ChavaCommit extends CommonPlugin {
 	private static SettingsHandler commits;
 	private static SettingsHandler authors;
 	private SettingsHandler settings;
@@ -95,7 +94,7 @@ public class ChavaCommit extends JavaPlugin {
 		
 		getLogger().log(Level.INFO, logPrefix + "Enabled!");
 		
-		MessageEvent.register(new CommitMessageListener(), Order.Default, this);
+		ChavaManager.getListenerManager().addListener(new CommitMessageListener());
 	}
 
 	public static SettingsHandler getCommitSettings() {

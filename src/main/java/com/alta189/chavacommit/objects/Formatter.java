@@ -4,7 +4,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-import org.jibble.pircbot.Colors;
+import org.pircbotx.Channel;
+import org.pircbotx.Colors;
 import org.yaml.snakeyaml.Yaml;
 
 import com.alta189.chavabot.ChavaManager;
@@ -43,7 +44,7 @@ public class Formatter {
 		}
 	}
 
-	public void send(String channel) {
+	public void send(Channel channel) {
 		if (repo != null && commits.size() > 0) {
 			for (Commit commit : commits) {
 				ChavaManager.getInstance().getChavaBot().sendMessage(channel, "\u000306" + Colors.BOLD + repo.getName() + Colors.NORMAL + ": " + "\u000303" + commit.getAuthor().getName() + " " + Colors.MAGENTA + repo.getBranch() + Colors.NORMAL + " - " + Colors.BLUE + commit.getShortURL());

@@ -1,13 +1,13 @@
 package com.alta189.chavacommit;
 
-import com.alta189.chavabot.events.Listener;
-import com.alta189.chavabot.events.channelevents.MessageEvent;
+import org.pircbotx.hooks.ListenerAdapter;
+import org.pircbotx.hooks.events.MessageEvent;
 
-public class CommitMessageListener implements Listener<MessageEvent> {
+@SuppressWarnings("rawtypes")
+public class CommitMessageListener extends ListenerAdapter {
 
-	@Override
 	public void onEvent(MessageEvent event) {
-		CommandParser.parse(event.getMessage(), event.getUser().getNick(), event.getChannel());
+		CommandParser.parse(event.getMessage(), event.getUser().getNick(), event.getChannel().getName());
 	}
 
 }
